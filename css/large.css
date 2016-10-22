@@ -1,0 +1,69 @@
+/* CSS easing animation tool http://matthewlein.com/ceaser/ */
+
+/* styling for large screens */
+
+body {}
+	
+header > div, footer > div {max-width:66em;margin:0 auto;position:relative;}
+article > div {max-width:66em;margin:1.5% auto 4%;-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+article > div > h3 {padding:0 3% 2%}
+
+article {padding:0 2%;}
+
+header {padding:1% 2% 2%}
+	header h1 {font-size:3.8rem;text-align:left}
+	header nav {position:absolute;right:0;bottom:1em;overflow:hidden}
+	header nav a {float:left}
+
+
+/* intro specifics */
+
+#intro {margin:5.5% auto 4%}
+
+
+
+/* tiles specifics */
+
+.tile > a {
+	background:#BFC78F;color:#FFFFEF;padding:11.5em 0 1em;
+	-webkit-transform: scale(1); 
+	transform: scale(1); 
+	-webkit-transition:all 0.1s ease-in-out 0s; 
+	transition:all 0.1s ease-in-out 0s;
+}
+	.tile > a:hover { 
+		-webkit-transform: scale(1.03); 
+		transform: scale(1.03); 
+		background: #9FA76F; 
+		color: #FFFFEF; 
+	}
+
+.tile > a:after {color:#FFFFEF;font-size:10rem;top:7%}
+.tile > a:hover:after {color:#FFFFEF}
+
+
+
+/* skills specifics */
+
+#skills {padding:3% 6.5% 3.5%}
+#skills > p {margin-bottom:2%;position:relative;}
+#skills > p:after {content:'*  *  *  *';position:absolute;bottom:-30%;left:0;right:0;font-size:3em;font-family:'Times New Roman';color:#BE9F5E}
+	/* slightly offset to compensate ltr text space in listings */	
+	#skills .skillset {position:relative;left:4.8%;padding:0 3%}
+#skills .skillset span {display:block;}
+
+/* elsewhere specifics */
+
+#elsewhere {margin:5.5% auto 4%}
+#elsewhere #stream {padding:2% 0 0}
+#elsewhere #stream li {width:16.6%;}
+#elsewhere #stream li a:hover span {
+	-moz-transition:opacity 0.1s ease-in-out 0s; 
+	-o-transition:opacity 0.1s ease-in-out 0s; 
+	-webkit-transition:background 0.1s ease-in-out 0s; 
+	transition:opacity 0.1s ease-in-out 0s;
+	opacity:1
+}
+	#elsewhere #stream li a:hover:after { background: rgba(106, 78, 78, 0); }
+
+
