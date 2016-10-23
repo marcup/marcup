@@ -1,0 +1,36 @@
+body {
+  padding: 10rem;
+  background: #FFFCEC;
+  font-family: 'Quattrocento Sans', sans-serif;
+  color: #7E6262;
+  font-weight: normal;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased; }
+  body:after {
+    /* delicate drop shadow in viewport top */
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    box-shadow: 0px -2px 7px black; }
+
+.hexagon {
+  position: relative;
+  width: 100px;
+  height: 57.7px;
+  background-color: #64C7CC;
+  margin: 28.85px 0; }
+  .hexagon:before, .hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent; }
+  .hexagon:before {
+    bottom: 100%;
+    border-bottom: 28.85px solid red; }
+  .hexagon:after {
+    top: 100%;
+    border-top: 28.85px solid green; }

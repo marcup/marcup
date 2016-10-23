@@ -1,0 +1,23 @@
+{
+  "name": "marcup",
+  "version": "1.0.0",
+  "description": "marcup website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/marcup/marcup.git"
+  },
+  "author": "marcup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcup/marcup/issues"
+  },
+  "homepage": "https://github.com/marcup/marcup#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

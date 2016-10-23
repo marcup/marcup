@@ -1,0 +1,31 @@
+#################
+## Framework
+#################
+
+tmp/
+cache/*/*
+vendor/
+*.sass-cache*
+*.css.map
+
+#################
+## General
+#################
+
+.DS_Store
+tmp*
+
+#################
+## Sass related
+#################
+
+*.css.map
+*.js.map
+
+
+#################
+## generated files
+#################
+
+web/css/*/*
+
