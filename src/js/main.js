@@ -122,7 +122,7 @@
 				  var imgsrc;
 					$.each(response.topartists.artist ,function(obj) {
 						$.each(this.image,function(obj) {
-							if (this.size=="extralarge") { //small|medium|large|extralarge|mega
+							if (this.size=="large") { //small|medium|large|extralarge|mega
 								imgsrc= this['#text'];
 							}
 						});
