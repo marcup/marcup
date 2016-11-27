@@ -1,0 +1,386 @@
+@import "mediaqueries";
+
+/* SCSS variables */
+
+$linecolor: #494c50;
+$canvas: #2b3237;
+$accent1:#f9603e;
+$accent2:#6abab7;
+
+/* SCSS Mixins */
+
+@mixin bodytext($btxtcolor:#fff) {
+	font-family:'Lato',Menlo,Monaco,monospace;
+	font-size:calc(1rem + .2vw);
+	font-weight: normal;
+	line-height: 1.8;
+	color:$btxtcolor;
+}
+
+@mixin textlink($color,$underline:'true') {
+	text-decoration: none;
+	color:$color;
+	@if $underline == 'true' {
+		border-bottom: 1px dashed darken($color, 30%);
+	}
+
+	&:hover {
+		background-color:$color;
+		color:#fff;
+		border-bottom:0;
+		transition:background-color 0.05s ease-in;
+	};
+}
+
+@mixin eggo($size,$radius) {
+  
+	display:block;
+	position:relative;
+	border:3px solid $canvas;
+	box-shadow:0 0 0 1px $linecolor;
+	width:$size;
+	height:$size;
+	border-radius:$radius;
+	overflow:hidden;
+
+	&:hover {
+		transition:box-shadow 0.1s ease-in;
+		box-shadow:0 0 1px 1px $accent2;
+	}
+
+	.cover {
+		display:block;
+		position:absolute;
+		top:0;right:0;bottom:0;left:0;
+		width:100%;
+		filter:grayscale(70%) contrast(80%);
+		img {
+			display:block;
+			width:100%;
+		}
+	}
+
+}
+
+/* https://css-tricks.com/set-text-on-a-circle/ */
+
+$textselection:lighten($canvas, 10%);
+
+/* Reset some stuff */
+html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, a, address, img, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, embed {
+  margin:0;  
+  padding:0;   
+  border:0;
+}
+
+::selection {
+  background: $textselection; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $textselection; /* Gecko Browsers */
+}
+
+body {
+	background-color:$canvas;
+	font-family:'Lato',Menlo,Monaco,monospace;
+	padding:0 4vw;
+	@media #{$medium-up} { 
+		padding:0 18vw;
+	}
+}
+
+h1 {
+	display: block;
+	margin:8vw auto;
+	text-align: center;
+	color:white;
+	font-size:calc(2rem + 7vw);
+	font-family: 'Lobster', cursive;
+	overflow: hidden;
+	@media #{$medium-up} { 
+		margin:6vw auto;
+	}
+
+	&:after {
+		content:(';');
+		font-family: 'Times New Roman';
+		font-size:calc(1rem + 8vw);
+		color:$accent1;
+		/*opacity:.6;*/
+		line-height: 1;
+		@media #{$medium-up} { 
+			line-height: 1.25;
+		}
+		vertical-align: center;
+	};
+}
+
+/*h5 {
+	@include rotated-text(6);
+}*/
+
+section {
+	
+	text-align: center;
+	border-top:1px solid $linecolor;
+	box-shadow:0 -1px 0 0 darken($linecolor, 13%);
+	
+	@media #{$small-down} {
+		width:75vw;
+		margin:0 auto;
+		h1 + & > h2 {display: none}
+	} 
+	@media #{$medium-up} { 
+		position: relative;
+		h1 + & > h2 {color:$linecolor;}
+	}
+
+	h2 {
+		font-family: 'Lobster', cursive;
+		font-size:30px;
+		color:#fff;
+
+		@media#{$small-down} {
+			width:100%;
+			margin:0 auto;
+			border-bottom:1px solid $linecolor;
+			box-shadow:0 1px 0 0 darken($linecolor, 13%);
+			padding:2rem 0;
+		}
+
+		@media #{$medium-up} { 
+			position: absolute;
+			top:-1.4rem;
+			left:0;
+			right:0;
+			text-shadow:5px 0 $canvas,-5px 0 $canvas,10px 0 $canvas,-10px 0 $canvas;
+		}
+
+
+	}
+
+}
+
+.intro {
+	@include bodytext();
+	padding:2rem 0 4rem;
+	@media #{$medium-up} { 
+		padding:8rem 5rem;
+	}
+	text-align: center;	
+
+
+	strong {
+		font-weight: normal;
+		&:nth-child(2) {color:$accent1;}
+		&:nth-child(3) {color:$accent2;}
+
+	}
+
+}
+
+.experience {
+
+	@include bodytext();
+	@media #{$small-up} { 
+	  display: flex;
+	  flex-direction: row;
+	  flex-wrap: nowrap;
+	  justify-content: center;
+	  padding:8rem 0;
+	}
+
+	.xpblock {
+		flex: 1 1 0;
+		@media #{$small-up} { 
+			padding:0 2rem;
+		}
+
+		.skills {
+			
+			@include bodytext();
+			text-align: center;
+			margin:3rem auto;
+			@media #{$small-up} { 
+				width:auto;
+				margin:0;
+
+			}
+
+			a {
+				@include textlink($accent2);
+			}
+
+		}
+
+	}
+
+}
+
+.activities {
+
+	padding:4rem 0;
+	@media #{$medium-up} { 
+		padding:8rem 0;
+		display: flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content: center;
+	}
+	
+	.activity {
+		padding:5px;
+		margin:5px;
+		text-align:center;
+		overflow: hidden;
+		@media #{$small-down} { 
+			display: flex;
+			align-items:center;
+			padding:.5rem 0 .5rem 2px;
+		}
+		@media #{$medium-up} { 
+			width:140px;
+			margin:15px;
+			
+		}
+
+		picture {
+
+			@media #{$small-down} { 
+				@include eggo(20vw,50%);
+				flex: 0 0 auto;
+			}
+			
+			@media #{$medium-up} { 
+				@include eggo(120px,50%);
+			}
+			
+			margin:0 auto;
+
+			&:hover {
+				.cover {
+					
+	  			background-size: 100px 100px;
+	  			filter:none;
+	  			overflow: hidden;
+	  			&.lastfm {	
+		  			background: url(/img/icons/lastfm.svg);
+		  		}
+		  		&.instagram {	
+		  			background: url(/img/icons/instagram.svg);
+		  		}
+		  		&.foursquare {	
+		  			background: url(/img/icons/foursquare.svg);
+		  		}
+
+	  			img {
+	  				opacity:0;
+	  				/*transition:opacity 0.1s ease-in;*/
+	  			}
+	  		}
+			}
+
+		}
+
+		h3 {
+			
+			line-height:1.5;
+			font-weight: normal;
+			color:#fff;
+			@media #{$small-down} { 
+				flex: 2 1 auto;
+				text-align:left;
+				padding-left:1.5rem;
+				font-size:calc(.4rem + 2vw);
+			}
+			@media #{$medium-up} { 
+				margin:16px 0 10px;
+				font-size:calc(.5rem + .3vw);
+			}
+
+			a {
+				@include textlink($accent2,'false');
+			}
+		}
+
+		
+
+		
+	}
+	
+}
+
+.about {
+
+	padding:3rem 0;
+	@media #{$small-up} { 
+		display: flex;
+	  flex-direction: row;
+	  flex-wrap: nowrap;
+	  justify-content: flex-start;
+	  align-items:center;
+	  padding:8rem 2rem;
+	}
+
+	picture {
+
+		@include eggo(60vw,50%);
+		margin:0 auto;
+
+		@media #{$small-up} { 
+			flex: 0 0 auto;
+			@include eggo(200px,10%);
+		}
+
+		&:hover {
+			.cover {
+				background: url(/img/icons/linkedin.svg);
+  			background-size: cover;
+  			filter:none;
+  			overflow: hidden;
+  			
+  			img {
+  				opacity:.2;
+  				/*transition:opacity 0.1s ease-in;*/
+  			}
+  		}
+		}
+	}
+
+	.bio {
+		
+		@include bodytext();
+		text-align: center;
+		margin:3rem auto;
+		@media #{$small-up} { 
+			flex: 2 1 auto;
+			padding-left:5vw;
+			margin:0;
+		}
+		strong {
+			font-weight: normal;
+			color:$accent1;
+		}
+
+		a {
+			@include textlink($accent2);
+		}
+
+	}
+
+}
+
+
+
+
+
+  
+
+	
+	
+
+
+
+
+
+  

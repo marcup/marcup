@@ -17,7 +17,7 @@ gulp.task('sass', function(){
 gulp.task('useref', function(){
   return gulp.src(config.src + '*.html')
     .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.js', uglify({mangle: false})))
     .pipe(gulp.dest(config.dest))
 });
 
