@@ -20,7 +20,6 @@
 
 	loadSocials();
 	//setEventTracking();
-	//showSocials();
 	setWelcome();
 
 	
@@ -105,7 +104,6 @@
 		  return;
 		});
 
-
 		fetchLatestFoursquare(settings.activityAmounts.foursquare,function(response) {
 
 			console.debug("Success! fetchLatestFoursquare", response);
@@ -135,8 +133,6 @@
 			});
 
 		});
-
-
 
 		getTopArtistsLastfm(settings.activityAmounts.lastfm,"7day").then(function(response){
 
@@ -168,7 +164,6 @@
 		  return;
 		});
 
-
 		// check if promises for Instagram and LastFM are resolved
 		//Promise.all([fetchLatestInstagram(),getTopArtistsLastfm()]).then(function() {
 			// make sure all calls are done
@@ -197,13 +192,11 @@
 					snippet = $(HBT_foursquare(activity));
 				}
 				//add to DOM
-				$('.activities').append($(HBT_wrapper(activity)).append(snippet));
+				$('.activities').prepend($(HBT_wrapper(activity)).append(snippet));
 				
 			});
 
 		};
-
-		
 
 		function fetchLatestInstagram(amount) {			
 			return new Promise(function(resolve, reject) {
@@ -266,34 +259,6 @@
 		};
 
 	};
-
-	//add collected items to stream sorted by timestamp
-	// function appendItem(newitem, timestamp) {
-	// 	//ensure integer
-	// 	timestamp = timestamp*1;
-	// 	if (timestamp && $("#stream li[data-timestamp]").length) {
-	// 		var marker = 0;
-	// 		//check if item to add is older than anything already in stream
-	// 		$("#stream li[data-timestamp]").each(function(){	
-	// 			if (timestamp < $(this).attr('data-timestamp')) {
-	// 				marker = $(this).attr('data-timestamp');
-	// 			}					
-	// 		});
-	// 		if (marker != 0)	{
-	// 			$(newitem).insertAfter($('#stream li[data-timestamp="'+marker+'"]'))
-	// 		}
-	// 		//if not, then item to add is the newest one
-	// 		else {
-	// 			$("#stream").prepend(newitem);
-	// 		}
-	// 	}
-	// 	else { 
-	// 		$("#stream").append(newitem);
-	// 	}
-	// }
-
-
-
 
 }(this.jQuery,this,this.document));
 
